@@ -67,6 +67,11 @@ function mouseDragged(){
 function mouseReleased(){
   chain.fly();
 }
+function keyPressed(){
+  if(keyCode===32){
+      chain.attach(this.stone);  
+  }
+}
 function detectCollision(lstone,lmango){
   stoneBodyPosition = lstone.body.position
   mangoBodyPosition = lmango.body.position
