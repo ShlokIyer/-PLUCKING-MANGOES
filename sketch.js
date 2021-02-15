@@ -4,7 +4,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
-var tree, ground, boy, stone;
+var tree, ground, boy, stone; 
 var mango1, mango2, mango3, mango4, mango5;
 
 function setup() {
@@ -56,7 +56,7 @@ function draw() {
   detectCollision(stone, mango5);
 
 
-
+   
   
   drawSprites();
  
@@ -67,11 +67,6 @@ function mouseDragged(){
 function mouseReleased(){
   chain.fly();
 }
-function keyPressed(){
-  if(keyCode===32){
-      chain.attach(this.stone);  
-  }
-}
 function detectCollision(lstone,lmango){
   stoneBodyPosition = lstone.body.position
   mangoBodyPosition = lmango.body.position
@@ -79,5 +74,11 @@ function detectCollision(lstone,lmango){
   var distance = dist(stoneBodyPosition.x, stoneBodyPosition.y, mangoBodyPosition.x, mangoBodyPosition.y)
   if(distance <= lmango.r + lstone.r){
     Matter.Body.setStatic(lmango.body, false)
+  }
+}
+function keyPressed(){
+  if(keyCode === 32){
+    Matter.Body.setPosition(stone.body,{x: 235, y: 420})
+    chain.attach(stone.body);
   }
 }

@@ -7,7 +7,7 @@ class Mango {
           friction : 1,
         }
 
-      this.body = Bodies.circle(x, y, radius, options);
+      this.body = Bodies.circle(x, y, radius/2, options);
       this.r = radius
 
       this.image = loadImage('mango.png');
